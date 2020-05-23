@@ -1,7 +1,6 @@
 version: 1.1.0.{build}
 
 platform:
-  - x86
   - x64
 
 environment:
@@ -14,7 +13,6 @@ environment:
 
   matrix:
     - VSVER: 14
-    - VSVER: 12
 
 install:
   - ps: >-
@@ -94,6 +92,7 @@ build_script:
   - bash -c "tail  -n +2 bindings/python/cvc_rehash.in > $DESTDIR/bin/cvc_rehash"
   - bash -c "cp    bindings/python/eac.py                $DESTDIR/bin"
   - bash -c "cp    bindings/python/_eac.pyd              $DESTDIR/bin"
+  - bash -c "cp    bindings/python/eac_wrap.c            $DESTDIR/bin"
   - bash -c "cp    bindings/python/chat.py               $DESTDIR/bin"
   - bash -c "cp    bindings/python/pace_entity.py        $DESTDIR/bin"
   - bash -c "$OPENSSL_CYGDIR/bin/openssl.exe version >>  $DESTDIR/dependencies.txt"
